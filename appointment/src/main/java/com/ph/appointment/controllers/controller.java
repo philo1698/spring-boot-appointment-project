@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/appointment")
 public class controller {
@@ -54,8 +56,18 @@ public class controller {
     }
 
     @PutMapping("/update-full/{id}")
-    public appointment updateFullTask(@PathVariable Long id,
+    public appointment updateFullAppiontment(@PathVariable Long id,
                                @RequestBody appointment request) {
         return appointment_service.updateAppointment(id, request);
+    }
+
+    @GetMapping("/get")
+    public appointment getTask(@RequestBody Long id) {
+        return appointment_service.getAppointmentById(id);
+    }
+
+    @GetMapping("/all")
+    public List<appointment> getAllTasks() {
+        return appointment_service.getAllAppointments();
     }
 }

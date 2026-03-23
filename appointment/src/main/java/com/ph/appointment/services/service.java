@@ -5,6 +5,7 @@ import com.ph.appointment.repository.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,9 @@ public class service {
         existing.setNotes(updatedAppointment.getNotes());
 
         return appointent_repository.save(existing);
+    }
+
+    public List<appointment> getAllAppointments(){
+        return appointent_repository.findAll();
     }
 }
