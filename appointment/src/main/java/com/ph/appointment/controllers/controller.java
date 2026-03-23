@@ -1,6 +1,7 @@
 package com.ph.appointment.controllers;
 
 import com.ph.appointment.models.DAO.appointment;
+import com.ph.appointment.models.DTO.idsList;
 import com.ph.appointment.models.DTO.simpleAppointment;
 import com.ph.appointment.services.service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,10 @@ public class controller {
     @GetMapping("/all")
     public List<appointment> getAllTasks() {
         return appointment_service.getAllAppointments();
+    }
+
+    @GetMapping("/list")
+    public List<appointment> getTasksByIds(@RequestBody idsList request) {
+        return appointment_service.getAppointmentssByIds(request.getIds());
     }
 }

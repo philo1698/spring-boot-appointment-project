@@ -45,4 +45,8 @@ public class service {
     public List<appointment> getAllAppointments(){
         return appointent_repository.findAll();
     }
+
+    public List<appointment> getAppointmentssByIds(List<Long> ids) {
+        return appointent_repository.FindByIds(ids);
+    }
 }
