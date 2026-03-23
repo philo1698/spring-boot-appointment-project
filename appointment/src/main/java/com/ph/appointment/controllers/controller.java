@@ -5,7 +5,6 @@ import com.ph.appointment.models.DTO.idsList;
 import com.ph.appointment.models.DTO.simpleAppointment;
 import com.ph.appointment.services.service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -73,7 +72,7 @@ public class controller {
     }
 
     @GetMapping("/list")
-    public List<appointment> getTasksByIds(@RequestBody idsList request) {
-        return appointment_service.getAppointmentssByIds(request.getIds());
+    public List<appointment> getAppointmentByIds(@RequestBody idsList request) {
+        return appointment_service.getAppointmentsByIds(request.getIds());
     }
 }
