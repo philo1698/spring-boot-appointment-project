@@ -52,4 +52,10 @@ public class controller {
 
         return appointment_service.updateAppointment(id, appointment_in);
     }
+
+    @PutMapping("/update-full/{id}")
+    public appointment updateFullTask(@PathVariable Long id,
+                               @RequestBody appointment request) {
+        return appointment_service.updateAppointment(id, request);
+    }
 }
